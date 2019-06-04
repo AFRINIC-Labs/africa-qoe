@@ -4,7 +4,8 @@ import time
 import pandas as pd
 
 api_url = 'https://kong.speedcheckerapi.com:8443/ProbeAPIv2/'
-apikey = '<ADD YOUR API KEY>'
+with open('api.key','r') as f:
+    apikey = f.read()
 
 ccs = [
 'EG', 'BJ', 'CI', 'CV', 'GH', 'GM', 'GN', 'GW', 'AO', 'CF', 'CG', 'CM', 'GA', 'GQ', 'TD', 'BI', 'DJ', 'ER', 'ET', 'KM', 'BW', 'MA', 'SD', 'TN', 'LR', 'ML', 'MR', 'NE', 'NG', 'SL', 'SN', 'TG', 'ST', 'KE', 'MG', 'MU', 'MW', 'MZ', 'RE', 'RW', 'SC', 'SO', 'UG', 'LS', 'NA', 'SZ', 'ZA', 'DZ', 'EH', 'LY', 'BF', 'SH', 'CD', 'TZ', 'YT', 'ZM', 'ZW']
