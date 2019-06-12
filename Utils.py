@@ -252,7 +252,7 @@ def getProbesByCC(df, cc):
 def runVideoTest(videoID, probeID, res):
     
     video_url = "http://pcsucdn.com/YoutubeVideoTest2.html?v=" + videoID + eval(res) 
-    print(video_url)
+    #print(video_url)
     
     json_test = {
       "testSettings": {
@@ -262,6 +262,30 @@ def runVideoTest(videoID, probeID, res):
         "Sources": [
           {
             "ProbeID": probeID
+          }
+        ],
+        "ProbeInfoProperties": probeInfoProperties,
+        "TestResultProperties": [
+              "VideoDownloadSpeed"
+        ]
+      }
+    }
+    
+    return startVideoTest(json_test)
+
+def runVideoTestByCC(videoID, cc, testCount):
+    
+    video_url = "http://pcsucdn.com/YoutubeVideoTest2.html?v=" + videoID
+    #print(video_url)
+    
+    json_test = {
+      "testSettings": {
+        "VideoUrl": video_url,
+        "VideoControlScript": "Youtube-Empty.js",
+        "TestCount": testCount,
+        "Sources": [
+          {
+            "CountryCode": cc
           }
         ],
         "ProbeInfoProperties": probeInfoProperties,
